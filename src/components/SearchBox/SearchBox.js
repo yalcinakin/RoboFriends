@@ -5,10 +5,10 @@ const SearchBox = ({ searchField, searchChange }) => {
     <div className="pa2">
       <input
         aria-label= "Search Robots"
-      className= "pa3 ba b--green bg-lightest blue"
-      type= "search"
-      placeholder= "Search Robots"
-      onChange = {searchChange}
+        className= "pa3 ba b--green bg-lightest blue"
+        type= "search"
+        placeholder= "Search Robots"
+        onChange = {searchChange}
       />
     </div>
   );
