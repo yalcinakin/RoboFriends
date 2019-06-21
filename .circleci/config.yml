@@ -8,15 +8,15 @@ jobs:
   bobby:
     executor: my-executor
     steps:
-      - run: echo outside the executor
+      - run: echo "outside the executor"
 
   sally:
     executor: my-executor
     steps:
-      - run: echo outside the executor
+      - run: echo "outside the executor"
 
 workflows:
-  version: 2
+  version: 2.1
   bobby&sally:
     jobs:
       -bobby
