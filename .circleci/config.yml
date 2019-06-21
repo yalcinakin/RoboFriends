@@ -2,19 +2,32 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/node:10
     steps:
       - checkout
-      - run: echo "Hello"
+      - run: echo "building"
+      - run: npm install
+      - run: CI=true npm run build
   test:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/node:10
     steps:
       - checkout
-      - run: echo "Hello World"
+      - run: echo "testing"
+      - run: npm install
+      - run: npm test
+  meaningless:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - echo "Hello World"
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - test
+      - meaningless
+      - test:
+          requires:
+            - meaningless
